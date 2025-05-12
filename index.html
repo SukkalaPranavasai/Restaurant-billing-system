@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafè Indiano - Modern Billing System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="logo-container">
+            <img src="https://www.shutterstock.com/image-vector/coffee-cafe-logo-cup-illustration-600nw-2480466297.jpg" alt="Aurora Bistro Logo" class="logo big-logo" style="width:90px;height:90px;object-fit:cover;border-radius:20px;box-shadow:0 4px 24px rgba(0,0,0,0.10);border:3px solid var(--primary);background:#fff;">
+            <div class="brand-text">
+                <h1>Aurora Bistro</h1>
+                <span class="caption">A Symphony of Flavors</span>
+            </div>
+        </div>
+        <div class="header-actions">
+            <button class="theme-toggle"><i class="fas fa-moon"></i></button>
+        </div>
+    </header>
+
+    <section class="main-content">
+        <div class="billing-container">
+            <form class="billing">
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="item-name"><i class="fas fa-utensils"></i> Item</label>
+                        <select id="item-name" required style="height: 48px; font-size: 1.1rem; padding: 0 1rem; border-radius: 10px; border: 2px solid #eee;">
+                            <option value="" disabled selected>Start Eating</option>
+                            <optgroup label="Hot Beverages">
+                                <option value="Espresso Coffee">Espresso Coffee</option>
+                                <option value="Hot Coffee">Hot Coffee</option>
+                                <option value="Special Coffee">Special Coffee</option>
+                            </optgroup>
+                            <optgroup label="Cold Beverages">
+                                <option value="Badam Shake">Badam Shake</option>
+                                <option value="Banana Shake">Banana Shake</option>
+                                <option value="Chocolate Milk">Chocolate Milk</option>
+                                <option value="Chocolate Shake">Chocolate Shake</option>
+                                <option value="Cold Cream Coffee">Cold Cream Coffee</option>
+                                <option value="Kesar Shake">Kesar Shake</option>
+                                <option value="Mango Shake">Mango Shake</option>
+                                <option value="Roohafza Milk Shake">Roohafza Milk Shake</option>
+                                <option value="Strawberry Shake">Strawberry Shake</option>
+                            </optgroup>
+                            <optgroup label="Special Drinks">
+                                <option value="Lemon Squash">Lemon Squash</option>
+                                <option value="Roohafza Sharbat">Roohafza Sharbat</option>
+                            </optgroup>
+                            <optgroup label="Snacks">
+                                <option value="Paneer Pakoda">Paneer Pakoda</option>
+                                <option value="Samosa">Samosa</option>
+                                <option value="Vada Pav">Vada Pav</option>
+                            </optgroup>
+                            <optgroup label="Water">
+                                <option value="Bisleri">Bisleri</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="input-box">
+                        <label for="item-qty"><i class="fas fa-sort-numeric-up"></i> Quantity</label>
+                        <input type="number" id="item-qty" value="1" min="1">
+                    </div>
+                    <button type="button" class="btn submit-btn">
+                        <i class="fas fa-plus"></i> Add
+                    </button>
+                </div>
+            </form>
+
+            <div class="bill">
+                <div class="bill-header">
+                    <h2>Current Order</h2>
+                    <span class="order-time"></span>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Price</th>
+                                <th>Qty</th>
+                                <th>Total</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="details">
+                    <div class="restaurant-info">
+                        <div class="info-card">
+                            <i class="fas fa-phone"></i>
+                            <p>9999999999</p>
+                        </div>
+                        <div class="info-card">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <a href="https://www.google.com/maps/search/Ghatkesar+Hyderabad" target="_blank" style="color:inherit;text-decoration:none;">Ghatkesar, Hyderabad</a>
+                        </div>
+                        <div class="info-card">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:aurorabistro@gmail.com" style="color:inherit;text-decoration:none;">aurorabistro@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="amount">
+                        <div class="cost">
+                            <ul>
+                                <li>Subtotal</li>
+                                <li>Tax (5%)</li>
+                                <li>Discount</li>
+                            </ul>
+                            <ul>
+                                <li class="subtotal">₹0</li>
+                                <li class="tax">₹0</li>
+                                <li class="discount">₹0</li>
+                            </ul>
+                        </div>
+                        <div class="total">
+                            <p>Total Amount</p>
+                            <p class="total-price">₹0</p>
+                        </div>
+                        
+                        <div class="button-group">
+                            <button class="btn print-btn">
+                                <i class="fas fa-print"></i> Print
+                            </button>
+                            <button class="btn clear-btn">
+                                <i class="fas fa-trash"></i> Clear
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="print-section" style="display:none;">
+        <div class="print-bill"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
